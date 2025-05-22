@@ -32,11 +32,13 @@ const Navigation = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
+      isScrolled ? 'bg-slate-900/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div className="text-2xl font-bold text-slate-800">Portfolio</div>
+          <div className="text-2xl font-bold text-white">
+            <span className="text-blue-400">Portfolio</span>
+          </div>
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
@@ -44,7 +46,7 @@ const Navigation = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-slate-600 hover:text-blue-600 transition-colors duration-200 font-medium"
+                className="text-slate-300 hover:text-blue-400 transition-colors duration-200 font-medium"
               >
                 {item.name}
               </button>
@@ -53,7 +55,7 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-slate-600"
+            className="md:hidden text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -62,13 +64,13 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-white/95 backdrop-blur-sm border-t border-slate-200">
+          <div className="md:hidden bg-slate-800/95 backdrop-blur-sm border-t border-slate-700">
             <div className="py-4 space-y-2">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="block w-full text-left px-4 py-2 text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors duration-200"
+                  className="block w-full text-left px-4 py-2 text-slate-300 hover:text-blue-400 hover:bg-slate-700 transition-colors duration-200"
                 >
                   {item.name}
                 </button>
