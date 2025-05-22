@@ -14,7 +14,9 @@ const Skills = () => {
             const bars = entry.target.querySelectorAll('.skill-bar');
             bars.forEach((bar, index) => {
               setTimeout(() => {
-                bar.style.width = bar.getAttribute('data-width');
+                // Cast the element to HTMLElement to access style property
+                const htmlBar = bar as HTMLElement;
+                htmlBar.style.width = htmlBar.getAttribute('data-width') || '0%';
               }, index * 100);
             });
           }
